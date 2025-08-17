@@ -1,5 +1,6 @@
 "use client"
 
+import { JSX } from "react/jsx-dev-runtime"
 import type { NavigationItem, NavigationClickHandler } from "../../types/header.types"
 import { NavigationItemComponent } from "./navigation-item"
 

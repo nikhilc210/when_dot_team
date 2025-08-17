@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import brainImage from "/brain.png"; // Update path as needed
-import { FaUserMd, FaUsers, FaMicroscope, FaBolt } from "react-icons/fa";
+
 import Header from "../components/Header/Header";
 import { LuShieldPlus } from "react-icons/lu";
 
@@ -46,7 +45,7 @@ const LongevityPlatform = () => {
         />
 
         <p className="text-[22px] text-[#000000]">
-          Whether you're a biohacker, a longevity enthusiast, or simply curious about living a longer, healthier life, our platform connects you directly with credible experts through live video sessions. Discover their latest insights, ask questions in real-time, and become part of a community that’s passionate about optimizing healthspan and lifespan.
+          Whether you&apos;re a biohacker, a longevity enthusiast, or simply curious about living a longer, healthier life, our platform connects you directly with credible experts through live video sessions. Discover their latest insights, ask questions in real-time, and become part of a community that’s passionate about optimizing healthspan and lifespan.
         </p>
       </div>
 

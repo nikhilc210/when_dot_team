@@ -2,6 +2,7 @@
 
 import type { NavigationItem, NavigationClickHandler } from "../../types/header.types"
 import type React from "react" // Import React to fix the undeclared JSX variable error
+import { JSX } from "react/jsx-dev-runtime"
 
 interface NavigationItemProps {
   item: NavigationItem

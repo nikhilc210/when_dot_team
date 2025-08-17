@@ -2,6 +2,7 @@
 
 import type { NavigationItem, NavigationClickHandler } from "../../types/header.types"
 import { NavigationItemComponent } from "./navigation-item"
+import { JSX } from "react/jsx-dev-runtime"
 
 interface MobileMenuProps {
   isOpen: boolean

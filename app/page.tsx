@@ -56,7 +56,7 @@ export default function Home() {
                 animate={{ opacity: isVisible ? 1 : 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Explore the world's leading longevity researchers, discover insights, and join a vibrant community
+                Explore the world&apos;s leading longevity researchers, discover insights, and join a vibrant community
                 driven by science and purpose
               </motion.p>
 

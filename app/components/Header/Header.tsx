@@ -1,6 +1,7 @@
 "use client"
 
 import { Menu, X } from "lucide-react"
+import { JSX } from "react/jsx-dev-runtime"
 import type { HeaderProps, NavigationClickHandler } from "../../types/header.types"
 import { DEFAULT_NAVIGATION_ITEMS, DEFAULT_LOGO_TEXT } from "../../constants/navigation-constants"
 import { useMobileMenu } from "../../hooks/use-mobile-menu"

@@ -132,7 +132,7 @@ export default function Component() {
             <blockquote
               className={`text-base sm:text-lg lg:text-xl text-blue-100 italic transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
             >
-              "Your health questions deserve expert answers. Let's make longevity accessible to everyone."
+              "Your health questions deserve expert answers. Let&apos;s make longevity accessible to everyone."
             </blockquote>
           </div>
         </div>

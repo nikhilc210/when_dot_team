@@ -1,3 +1,5 @@
+import { Specialization,Doctor } from "../types/expert"
+
 export interface Expert {
   id: string
   name: string
@@ -22,7 +24,6 @@ export const expertsData: Expert[] = [
   },
 ]
 
-import type { Doctor, Specialization } from "@/types"
 
 export const specializations: Specialization[] = [
   { id: "biogerontologist", name: "Biogerontologist", checked: true },

@@ -18,7 +18,13 @@ const bottomItems = [
   { icon: Sun, label: "Light Mode" },
 ]
 
-export function Sidebar({ collapsed, onToggle }) {
+type SidebarProps = {
+  collapsed: boolean
+  onToggle: () => void
+}
+
+
+export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   return (
     <div
       className={cn(

@@ -144,9 +144,9 @@ export default function Page() {
               {/* Bottom text */}
               <div className="mt-8 pt-4">
                 <p className="text-gray-600 text-xs text-center leading-relaxed">
-                  Explore the world's leading longevity researchers, discover
-                  insights, and join a vibrant community driven by science and
-                  purpose
+                  Explore the world&apos;s leading longevity researchers,
+                  discover insights, and join a vibrant community driven by
+                  science and purpose
                 </p>
               </div>
             </div>
@@ -267,9 +267,9 @@ export default function Page() {
                   </blockquote> */}
 
                   <p className="text-[#000000] text-sm max-w-md text-center absolute bottom-15">
-                    Explore the world's leading longevity researchers, discover
-                    insights, and join a vibrant community driven by science and
-                    purpose
+                    Explore the world&apos;s leading longevity researchers,
+                    discover insights, and join a vibrant community driven by
+                    science and purpose
                   </p>
                 </div>
               </div>

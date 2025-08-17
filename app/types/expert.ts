@@ -58,4 +58,4 @@ export interface HeaderProps {
   isLoaded: boolean
 }
 
-export type NoResultsProps = {}
+export type NoResultsProps = object
