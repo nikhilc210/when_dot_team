@@ -2,10 +2,10 @@ import Image from "next/image"
 import { Star, MapPin, Calendar, Heart } from "lucide-react"
 import Link from "next/link"
 
-interface Doctor {
+ interface Doctor {
   id: number
   name: string
-  institute: string
+
   location: string
   image: string
   specialty?: string
@@ -14,10 +14,11 @@ interface Doctor {
 }
 
 interface DoctorCardProps {
-  doctor: Doctor
+  doctor: Doctor,
+  index:number
 }
 
-export default function DoctorCard({ doctor }: DoctorCardProps) {
+export default function DoctorCard({ doctor, index }: DoctorCardProps) {
   return (
     <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.03] hover:-translate-y-2 border border-gray-100">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -56,7 +57,7 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
       {/* Doctor Info */}
       <div className="p-6 space-y-4">
         <div className="inline-block bg-gradient-to-r from-[#00aaff] to-[#0088cc] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-          {doctor.institute}
+          Institiute
         </div>
 
         <div className="space-y-2">

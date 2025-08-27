@@ -219,7 +219,7 @@ export default function PodcastInterface() {
             className="animate-in fade-in slide-in-from-bottom duration-500"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <DoctorCard doctor={doctor} />
+            <DoctorCard doctor={doctor} index={doctor.id} />
           </div>
         ))}
 
@@ -234,7 +234,7 @@ export default function PodcastInterface() {
             className="animate-in fade-in slide-in-from-bottom duration-500"
             style={{ animationDelay: `${(index + 6) * 100}ms` }}
           >
-            <DoctorCard doctor={doctor} />
+            <DoctorCard doctor={doctor} index={doctor.id}/>
           </div>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import type { Doctor } from "../types/expert"
-import { DoctorCard } from "./DoctorCard"
+import DoctorCard from "./DoctorCard"
 
 interface DoctorGridProps {
   doctors: Doctor[]

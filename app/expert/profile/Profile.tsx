@@ -117,8 +117,8 @@ export default function Profile() {
                     key={tag}
                     className="text-gray-600 cursor-pointer transition-colors duration-200 animate-fade-in-up hover:opacity-80"
                     style={{ animationDelay: `${index * 100}ms`, color: "#00aaff" }}
-                    onMouseEnter={(e) => (e.target.style.color = "#0088cc")}
-                    onMouseLeave={(e) => (e.target.style.color = "#00aaff")}
+                    // onMouseEnter={(e) => (e.target.style.color = "#0088cc")}
+                    // onMouseLeave={(e) => (e.target.style.color = "#00aaff")}
                   >
                     {tag}
                   </span>

@@ -5,10 +5,10 @@ import { Header } from "../../components/header"
 import { Sidebar } from "../../components/Sidebar/index"
 import { MainContent } from "../../components/main-content"
 import { ReplayEventsSidebar } from "../../components/replay-events-sidebar"
-import Questions from "./Questions"
+
 import Profile from "./Profile"
 
-export default function page() {
+export default function Page() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
   return (
