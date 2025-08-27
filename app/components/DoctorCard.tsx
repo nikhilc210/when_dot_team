@@ -1,52 +1,94 @@
-import type { DoctorCardProps } from "../types/expert"
+import Image from "next/image"
+import { Star, MapPin, Calendar, Heart } from "lucide-react"
+import Link from "next/link"
 
-export function DoctorCard({ doctor, index }: DoctorCardProps) {
+interface Doctor {
+  id: number
+  name: string
+  institute: string
+  location: string
+  image: string
+  specialty?: string
+  rating?: number
+  reviews?: number
+}
+
+interface DoctorCardProps {
+  doctor: Doctor
+}
+
+export default function DoctorCard({ doctor }: DoctorCardProps) {
   return (
-    <div
-      className={`group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 hover:scale-105 animate-in fade-in slide-in-from-bottom-4`}
-      style={{
-        animationDelay: `${index * 100}ms`,
-        animationFillMode: "both",
-      }}
-    >
-      {/* Doctor Image with enhanced animations */}
-      <div className="relative h-64 overflow-hidden">
-        <img
+    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.03] hover:-translate-y-2 border border-gray-100">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      {/* Doctor Image */}
+      <div className="relative h-52 bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden">
+        <Image
           src={doctor.image || "/placeholder.svg"}
-          alt={doctor.name}
-          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
+          alt={`Portrait of ${doctor.name}`}
+          fill
+          className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-105"
         />
 
-        {/* Enhanced Hover Overlay with slide-up animation */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center text-white">
-          <div className="text-center space-y-2 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-            <h3 className="text-2xl font-bold animate-in slide-in-from-bottom-2 duration-300 delay-200">
-              More information
-            </h3>
-            <p className="text-lg animate-in slide-in-from-bottom-2 duration-300 delay-300">More information</p>
-            <p className="text-base animate-in slide-in-from-bottom-2 duration-300 delay-400">More information</p>
+        {doctor.rating && (
+          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-lg border border-white/20">
+            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+            <span className="text-sm font-bold text-gray-800">{doctor.rating}</span>
           </div>
+        )}
 
-          {/* Animated border effect */}
-          <div className="absolute inset-0 border-2 border-white/20 scale-95 group-hover:scale-100 transition-transform duration-500 delay-200"></div>
+        <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+          <div className="bg-white/90 backdrop-blur-md rounded-full p-2 shadow-lg hover:bg-red-50 transition-colors duration-200 cursor-pointer">
+            <Heart className="h-4 w-4 text-gray-600 hover:text-red-500 transition-colors duration-200" />
+          </div>
+        </div>
+
+        <div className="absolute bottom-4 left-4 right-4">
+          <div className="bg-white/95 backdrop-blur-md rounded-xl px-3 py-2 shadow-lg border border-white/20 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+              {doctor.specialty || "General Medicine"}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Doctor Info with slide-up animation */}
-      <div className="p-4 transform group-hover:-translate-y-1 transition-transform duration-300">
-        <div className="text-sm text-gray-500 mb-1 transition-colors duration-300 group-hover:text-blue-500">
-          {doctor.institution}
+      {/* Doctor Info */}
+      <div className="p-6 space-y-4">
+        <div className="inline-block bg-gradient-to-r from-[#00aaff] to-[#0088cc] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+          {doctor.institute}
         </div>
-        <h3 className="font-semibold text-gray-900 mb-1 transition-colors duration-300 group-hover:text-blue-600">
-          {doctor.name}
-        </h3>
-        <p className="text-sm text-gray-600 transition-colors duration-300 group-hover:text-gray-800">
-          {doctor.location}
-        </p>
+
+        <div className="space-y-2">
+          <h3 className="text-gray-900 font-bold text-xl leading-tight group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#00aaff] group-hover:to-[#0088cc] group-hover:bg-clip-text transition-all duration-300">
+            {doctor.name}
+          </h3>
+          <p className="text-gray-600 text-sm font-medium">{doctor.specialty || "General Medicine"}</p>
+        </div>
+
+        <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center gap-2 text-gray-500">
+            <div className="bg-gray-100 rounded-full p-1">
+              <MapPin className="h-3 w-3" />
+            </div>
+            <span className="font-medium">{doctor.location}</span>
+          </div>
+          {doctor.reviews && (
+            <div className="text-gray-500 font-medium">
+              <span className="text-[#00aaff] font-bold">{doctor.reviews}</span> reviews
+            </div>
+          )}
+        </div>
+
+        <div className="pt-2">
+          <Link href={"/expert/profile"} className="w-full bg-gradient-to-r from-[#00aaff] to-[#0088cc] hover:from-[#0088cc] hover:to-[#0066aa] text-white py-3 px-4 rounded-xl text-sm font-bold shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2 cursor-pointer">
+            <Calendar className="h-4 w-4" />
+            Visit Profile
+          </Link>
+        </div>
       </div>
 
-      {/* Animated bottom border */}
-      <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500"></div>
+      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-[#00aaff]/20 group-hover:to-[#0088cc]/20 transition-all duration-500 pointer-events-none opacity-0 group-hover:opacity-100" />
     </div>
   )
 }

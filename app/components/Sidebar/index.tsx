@@ -2,20 +2,21 @@
 
 import { Home, Check, Play, Zap, Shield, User, Sun } from "lucide-react"
 import { cn } from "../../lib/utils"
+import Link from "next/link"
 
 
 
 const menuItems = [
-  { icon: Home, label: "Home", active: true },
-  { icon: Check, label: "Following" },
-  { icon: Play, label: "Replay" },
-  { icon: Zap, label: "My Questions" },
-  { icon: Shield, label: "Experts" },
+  { icon: Home, label: "Home", active: true, link:'/upcoming_event' },
+  { icon: Check, label: "Following", link:"/following" },
+  { icon: Play, label: "Replay", link: "/replay"},
+  { icon: Zap, label: "My Questions", link:"/questions" },
+  { icon: Shield, label: "Experts",link:"/experts" },
 ]
 
 const bottomItems = [
-  { icon: User, label: "Profile" },
-  { icon: Sun, label: "Light Mode" },
+  { icon: User, label: "Profile", link:'/profile' },
+  { icon: Sun, label: "Light Mode",link:'/mode' },
 ]
 
 type SidebarProps = {
@@ -36,29 +37,35 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
         {/* Main menu items */}
         <div className="flex-1 py-4">
           {menuItems.map((item, index) => (
+             <Link  key={index} href={item.link}>
             <div
-              key={index}
               className={cn(
                 "flex items-center px-4 py-3 cursor-pointer transition-colors",
                 item.active ? "bg-blue-50 text-blue-600 border-r-2 border-blue-600" : "text-gray-600 hover:bg-gray-50",
               )}
             >
-              <item.icon className="w-5 h-5 flex-shrink-0" />
+             
+                 <item.icon className="w-5 h-5 flex-shrink-0" />
               {!collapsed && <span className="ml-3 text-sm font-medium">{item.label}</span>}
-            </div>
+              
+              </div>
+              </Link>
           ))}
         </div>
 
         {/* Bottom items */}
         <div className="border-t border-gray-200 py-4">
           {bottomItems.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center px-4 py-3 cursor-pointer text-gray-600 hover:bg-gray-50 transition-colors"
-            >
-              <item.icon className="w-5 h-5 flex-shrink-0" />
-              {!collapsed && <span className="ml-3 text-sm font-medium">{item.label}</span>}
-            </div>
+              <Link key={index} href={item.link}>
+                    <div
+                    key={index}
+                    className="flex items-center px-4 py-3 cursor-pointer text-gray-600 hover:bg-gray-50 transition-colors"
+                  >
+                    <item.icon className="w-5 h-5 flex-shrink-0" />
+                    {!collapsed && <span className="ml-3 text-sm font-medium">{item.label}</span>}
+                  </div>
+              </Link>
+            
           ))}
         </div>
       </div>
